@@ -276,6 +276,15 @@ Avvio del progetto
 git clone https://github.com/edoardo81-dev/cinema-quarkus.git
 cd cinema-quarkus
 2. Avvio in sviluppo
+> [!NOTE]
+> Il progetto utilizza chiavi JWT locali (`privateKey.pem` e `publicKey.pem`) che **non sono incluse nel repository pubblico** per motivi di sicurezza.
+> 
+> Nel file `application.properties` sono configurati questi riferimenti:
+> 
+> - `smallrye.jwt.sign.key.location=privateKey.pem`
+> - `mp.jwt.verify.publickey.location=publicKey.pem`
+> 
+> Per eseguire correttamente il progetto, queste chiavi devono essere presenti in locale/configurate nell’ambiente di esecuzione. In alternativa, è possibile adattare la configurazione JWT per il proprio ambiente di sviluppo o deploy.
 
 Per eseguire il progetto in modalità sviluppo con H2:
 
