@@ -22,29 +22,26 @@ Il progetto è organizzato con una struttura pulita a layer, usando:
 - **DTO** per richieste e risposte
 - **Mapper** per la conversione tra entità e DTO
 
----
-
 ## Tecnologie utilizzate
 
-- **Java 17**
-- **Quarkus 3**
-- **Maven**
-- **REST**
-- **Jackson**
-- **Hibernate Validator**
-- **JWT (SmallRye JWT)**
-- **Ebean ORM**
-- **H2** per ambiente di sviluppo
-- **PostgreSQL** per ambiente production
-- **Docker / Docker Compose**
-- **Nginx**
-- **Server-Sent Events (SSE)**
-
----
+- Java 17
+- Quarkus 3
+- Maven
+- REST
+- Jackson
+- Hibernate Validator
+- JWT (SmallRye JWT)
+- Ebean ORM
+- H2 per ambiente di sviluppo
+- PostgreSQL per ambiente production
+- Docker / Docker Compose
+- Nginx
+- Server-Sent Events (SSE)
 
 ## Funzionalità principali
 
 ### Area pubblica
+
 - visualizzazione di tutti i film
 - dettaglio singolo film
 - visualizzazione sale
@@ -55,6 +52,7 @@ Il progetto è organizzato con una struttura pulita a layer, usando:
 - stream eventi prenotazioni via SSE
 
 ### Area amministrativa
+
 - login admin con JWT
 - CRUD completo su:
   - film
@@ -65,8 +63,6 @@ Il progetto è organizzato con una struttura pulita a layer, usando:
 - ricerca prenotazioni per programmazione
 - annullamento prenotazioni
 - eliminazione prenotazioni
-
----
 
 ## Struttura del progetto
 
@@ -93,31 +89,39 @@ cinema-quarkus
 │   │   └── resources
 │   └── test
 └── docker-compose.yml
-Package principali:
-
+Package principali
 config
+
 Configurazione applicativa e inizializzazione dati.
 
 dto
+
 Oggetti usati per input/output delle API.
 
 exception
+
 Gestione centralizzata degli errori applicativi.
 
 mapper
+
 Conversione tra entità e DTO.
 
 model
+
 Entità principali del dominio.
 
 repository
+
 Accesso ai dati tramite Ebean.
 
 resource
+
 Endpoint REST esposti dal backend.
 
 service
+
 Logica di business.
+
 Modello dominio
 
 Le entità principali del progetto sono:
@@ -140,7 +144,9 @@ Sicurezza e autenticazione
 Il progetto usa JWT per proteggere gli endpoint amministrativi.
 
 Endpoint pubblico di login
+
 POST /api/auth/login
+
 Permessi configurati
 /api/public/** → accesso libero
 /api/auth/* → accesso libero
@@ -276,15 +282,16 @@ Avvio del progetto
 git clone https://github.com/edoardo81-dev/cinema-quarkus.git
 cd cinema-quarkus
 2. Avvio in sviluppo
-> [!NOTE]
-> Il progetto utilizza chiavi JWT locali (`privateKey.pem` e `publicKey.pem`) che **non sono incluse nel repository pubblico** per motivi di sicurezza.
-> 
-> Nel file `application.properties` sono configurati questi riferimenti:
-> 
-> - `smallrye.jwt.sign.key.location=privateKey.pem`
-> - `mp.jwt.verify.publickey.location=publicKey.pem`
-> 
-> Per eseguire correttamente il progetto, queste chiavi devono essere presenti in locale/configurate nell’ambiente di esecuzione. In alternativa, è possibile adattare la configurazione JWT per il proprio ambiente di sviluppo o deploy.
+
+[!NOTE]
+Il progetto utilizza chiavi JWT locali (privateKey.pem e publicKey.pem) che non sono incluse nel repository pubblico per motivi di sicurezza.
+
+Nel file application.properties sono configurati questi riferimenti:
+
+smallrye.jwt.sign.key.location=privateKey.pem
+mp.jwt.verify.publickey.location=publicKey.pem
+
+Per eseguire correttamente il progetto, queste chiavi devono essere presenti in locale o configurate nell’ambiente di esecuzione. In alternativa, è possibile adattare la configurazione JWT per il proprio ambiente di sviluppo o deploy.
 
 Per eseguire il progetto in modalità sviluppo con H2:
 
