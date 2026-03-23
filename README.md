@@ -89,37 +89,31 @@ cinema-quarkus
 │   │   └── resources
 │   └── test
 └── docker-compose.yml
-Package principali
-config
 
+Package principali
+
+config
 Configurazione applicativa e inizializzazione dati.
 
 dto
-
 Oggetti usati per input/output delle API.
 
 exception
-
 Gestione centralizzata degli errori applicativi.
 
 mapper
-
 Conversione tra entità e DTO.
 
 model
-
 Entità principali del dominio.
 
 repository
-
 Accesso ai dati tramite Ebean.
 
 resource
-
 Endpoint REST esposti dal backend.
 
 service
-
 Logica di business.
 
 Modello dominio
