@@ -44,5 +44,8 @@ nb-configuration.xml
 # TLS Certificates
 .certs/
 
-privateKey.pem
-publicKey.pem
+nginx/certs/*.key
+nginx/certs/*.crt
+
+# Keys
+*.pem
